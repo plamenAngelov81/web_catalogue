@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'materials' %}">Bricks</a>
+    </h1>
+    {% for position in positions %}
+        <ul>
+            {% for brick in position %}
+                <li class="position">
+                    <div>
+                        {% if brick.item_image %}
+                            <a href="{% url 'product details' brick.pk %}">
+                                <img width="150" height="150" src="/media/{{ brick.item_image }}" alt="{{ brick.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'products details' brick.pk %}">
+                                <img width="150" height="150" class="build-in-img"
+                                     src="{% static 'images/no_paint_image.jpg' %}" alt='build-in-image'/>
+                            </a>
+                        {% endif %}
+                        <p>Price: ${{ brick.price|floatformat:2 }}</p>
+                        <p>{{ brick.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </center>
+{% endblock %}

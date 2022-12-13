@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <img width="1420"
+         height="825"
+         src="{% static 'images/main_materials.png' %}"
+         alt="materials"
+         class="responsive">
+{% endblock %}

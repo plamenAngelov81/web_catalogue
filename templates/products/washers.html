@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'metal elements' %}">Washers</a>
+    </h1>
+    <div class="table">
+        <table>
+            <thead>Ordinary Washers</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+            </tr>
+            {% for washer in ordinary_washers %}
+                <tr>
+                    <td><a href="{% url 'product details' washer.pk %}">{{ washer.name }}</a></td>
+                    <td>{{ washer.product_type.type_name }}</td>
+                    <td>{{ washer.diameter|floatformat:2 }}mm</td>
+                    <td>{{ washer.length|floatformat:2 }}mm</td>
+                    <td>${{ washer.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>Spiral Washer</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+
+            </tr>
+            {% for washer in spiral_washers %}
+                <tr>
+                    <td><a href="{% url 'product details' washer.pk %}">{{ washer.name }}</a></td>
+                    <td>{{ washer.product_type.type_name }}</td>
+                    <td>{{ washer.diameter|floatformat:2 }}mm</td>
+                    <td>{{ washer.length|floatformat:2 }}mm</td>
+                    <td>${{ washer.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </center>
+{% endblock %}

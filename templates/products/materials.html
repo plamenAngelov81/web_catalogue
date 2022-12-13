@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/class_position.css' %}">
+
+    <center>
+        <h1>
+            <a href="{% url 'index' %}">Materials</a>
+        </h1>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'bricks' %}">
+                    <img width="150" height="150" src="{% static 'images/brick_def.jpg' %}" alt="brick_def">
+                </a>
+            </button>
+            <h3>Bricks</h3>
+        </div>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'tiles' %}">
+                    <img width="150" height="150" src="{% static 'images/tile_def.jpg' %}" alt="tile_def">
+                </a>
+            </button>
+            <h3>Tiles</h3>
+        </div>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'insulation' %}">
+                    <img width="150" height="150" src="{% static 'images/thermal_insulation_def.jpg' %}"
+                         alt="insulation_def">
+                </a>
+            </button>
+            <h3>Insulation</h3>
+        </div>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'mixtures' %}">
+                    <img width="150" height="150" src="{% static 'images/mixtures_def.jpg' %}" alt="nut_def">
+                </a>
+            </button>
+            <h3>Mixtures</h3>
+        </div>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'dry const' %}">
+                    <img width="150" height="150" src="{% static 'images/dry_construction_def_1.jpg' %}" alt="nut_def">
+                </a>
+            </button>
+            <h3>Dry Construction</h3>
+        </div>
+
+    </center>
+{% endblock %}

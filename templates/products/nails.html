@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'metal elements' %}">Nails</a>
+    </h1>
+    <div class="table">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+            </tr>
+            {% for nail in nails %}
+                <tr>
+                    <td><a href="{% url 'product details' nail.pk %}">{{ nail.name }}</a></td>
+                    <td>{{ nail.product_type.type_name }}</td>
+                    <td>{{ nail.diameter|floatformat:2 }}mm</td>
+                    <td>{{ nail.length|floatformat:2 }}mm</td>
+                    <td>${{ nail.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </center>
+{% endblock %}

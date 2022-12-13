@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/class_position.css' %}">
+    {% load static %}
+    <center>
+        <h1>
+            <a href="{% url 'index' %}">Tools</a>
+        </h1>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'hand tool' %}">
+                    <img width="200" height="200" src="{% static 'images/hand_tools.PNG' %}" alt="bolt_def">
+                </a>
+            </button>
+            <h3>Hand Tools</h3>
+        </div>
+
+        <div class="metal">
+            <button>
+                <a href="{% url 'power tool' %}">
+                    <img width="200" height="200" src="{% static 'images/power-tools.png' %}" alt="nut_def">
+                </a>
+            </button>
+            <h3>Electric Tools</h3>
+        </div>
+
+    </center>
+{% endblock %}

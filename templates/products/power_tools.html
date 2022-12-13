@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'tool' %}">Power Tools</a>
+    </h1>
+    {% for position in positions %}
+        <ul>
+            {% for power_tool in position %}
+                <li class="position">
+                    <div>
+                        {% if power_tool.item_image %}
+                            <a href="{% url 'product details' power_tool.pk %}">
+                                <img width="150" height="150" src="/media/{{ power_tool.item_image }}" alt="{{ power_tool.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'product details' power_tool.pk %}">
+                                <img width="150" height="150" class="build-in-img"
+                                     src="{% static 'images/no_paint_image.jpg' %}" alt='build-in-image'/>
+                            </a>
+                        {% endif %}
+                        <p>Price: ${{ power_tool.price|floatformat:2 }}</p>
+                        <p>{{ power_tool.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </center>
+{% endblock %}

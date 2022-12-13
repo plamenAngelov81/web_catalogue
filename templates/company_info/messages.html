@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h2>Type you message in this form</h2>
+    <form method="post" action="{% url 'message' %}">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button>Send</button>
+    </form>
+{% endblock %}

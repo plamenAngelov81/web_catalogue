@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'materials' %}">{{ title }}s</a>
+    </h1>
+    {% for position in positions %}
+        <ul>
+            {% for object in position %}
+                <li class="position">
+                    <div>
+                        {% if object.item_image %}
+                            <a href="{% url 'product details' object.pk %}">
+                                <img width="150" height="150" src="/media/{{ object.item_image }}" alt="{{ object.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'products details' object.pk %}">
+                                <img width="150" height="150" class="build-in-img"
+                                     src="{% static 'images/no_paint_image.jpg' %}" alt='build-in-image'/>
+                            </a>
+                        {% endif %}
+                        <p>Price: ${{ object.price|floatformat:2 }}</p>
+                        <p>{{ object.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </center>
+{% endblock %}

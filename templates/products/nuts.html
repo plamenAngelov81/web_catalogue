@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'metal elements' %}">Nuts</a>
+    </h1>
+    <div class="table">
+        <table>
+            <thead>Hex Nuts</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+            </tr>
+            {% for nut in hex_nuts %}
+                <tr>
+                    <td><a href="{% url 'product details' nut.pk %}">{{ nut.name }}</a></td>
+                    <td>{{ nut.product_type.type_name }}</td>
+                    <td>{{ nut.diameter|floatformat:2 }}mm</td>
+                    <td>{{ nut.length|floatformat:2 }}mm</td>
+                    <td>${{ nut.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>Lock Nuts</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+
+            </tr>
+            {% for nut in lock_nuts %}
+                <tr>
+                    <td><a href="{% url 'product details' nut.pk %}">{{ nut.name }}</a></td>
+                    <td>{{ nut.product_type.type_name }}</td>
+                    <td>{{ nut.diameter|floatformat:2 }}mm</td>
+                    <td>{{ nut.length|floatformat:2 }}mm</td>
+                    <td>${{ nut.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </center>
+{% endblock %}

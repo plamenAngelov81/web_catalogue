@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <link rel="stylesheet" href="{% static 'css/profile_create.css' %}">
+    <center>
+    <h1>Create an account</h1>
+    <form method="POST" action="{% url 'account register' %}" class="login-form spacer" id="signup-form">
+        {% csrf_token %}
+
+        <table>
+            <tr>
+                <td>Username:</td><td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>Email:</td><td>{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>Password:</td><td>{{ form.password1 }}</td>
+            </tr>
+            <tr>
+                <td>Password Again:</td><td>{{ form.password2 }}</td>
+            </tr>
+        </table>
+        {#        <div class="input-group">#}
+        {##}
+        {#           Username: {{ form.username }}#}
+        {#        </div>#}
+        {#        <div class="input-group">#}
+        {##}
+        {#           Email: {{ form.email }}#}
+        {#        </div>#}
+        {##}
+        {#        <div class="input-group">#}
+        {#           Password: {{ form.password1 }}#}
+        {#        </div>#}
+        {##}
+        {#        <div class="input-group">#}
+        {##}
+        {#           Password Again: {{ form.password2 }}#}
+        {#        </div>#}
+
+        <button class="create">Create Profile</button>
+    </form>
+    </center>
+{% endblock %}

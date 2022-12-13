@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+
+    <center>
+    <h1>
+        <a href="{% url 'index' %}">Fasteners and metal components</a>
+    </h1>
+
+    <div class="metal">
+        <button>
+            <a href="{% url 'bolts' %}">
+                <img width="200" height="200" src="{% static 'images/bolt_def.jpg' %}" alt="bolt_def">
+            </a>
+        </button>
+        <h3>Bolts</h3>
+    </div>
+
+    <div class="metal">
+        <button>
+            <a href="{% url 'nuts' %}">
+                <img width="200" height="200" src="{% static 'images/nuts_def.jpg' %}" alt="nut_def">
+            </a>
+        </button>
+        <h3>Nuts</h3>
+    </div>
+
+    <div class="metal">
+        <button>
+            <a href="{% url 'washers' %}">
+                <img width="200" height="200" src="{% static 'images/washers_def.jpg' %}" alt="nut_def">
+            </a>
+        </button>
+        <h3>Washers</h3>
+    </div>
+
+    <div class="metal">
+        <button>
+            <a href="{% url 'metal components' %}">
+                <img width="200" height="200" src="{% static 'images/metal_profiles.jpg' %}" alt="nut_def">
+            </a>
+        </button>
+        <h3>Metal Profiles</h3>
+    </div>
+
+    <div class="metal">
+        <button>
+            <a href="{% url 'nails' %}">
+                <img width="200" height="200" src="{% static 'images/nail_def.jpg' %}" alt="nut_def">
+            </a>
+        </button>
+        <h3>Nails</h3>
+    </div>
+
+    </center>
+{% endblock %}

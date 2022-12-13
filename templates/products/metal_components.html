@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'metal elements' %}">Metal Components</a>
+    </h1>
+    <div class="table">
+        <table>
+            <thead>Shape Metal Components</thead>
+            <tr>
+                <td>Name</td>
+                <td>Length (mm)</td>
+                <td>Height(mm)</td>
+                <td>Width(mm)</td>
+                <td>Price</td>
+            </tr>
+            {% for component in shape %}
+                <tr>
+                    <td><a href="{% url 'product details' component.pk %}">{{ component.name }}</a></td>
+{#                    <td>{{ component.product_type.type_name }}</td>#}
+                    <td>{{ component.length|floatformat:2 }}</td>
+                    <td>{{ component.height|floatformat:2 }}</td>
+                    <td>{{ component.width|floatformat:2 }}</td>
+                    <td>${{ component.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>Armature</thead>
+            <tr>
+                <td>Name</td>
+                <td>Length (mm)</td>
+                <td>Diameter (mm)</td>
+                <td>Price</td>
+
+            </tr>
+            {% for armature in armatures %}
+                <tr>
+                    <td><a href="{% url 'product details' armature.pk %}">{{ armature.name }}</a></td>
+                    <td>{{ armature.length|floatformat:2 }}</td>
+                    <td>{{ armature.diameter|floatformat:2 }}</td>
+                    <td>${{ armature.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </center>
+{% endblock %}

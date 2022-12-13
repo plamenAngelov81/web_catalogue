@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1>Build Center Info</h1>
+    <section>
+        <h3>Work Time: 0{{ work_time.start_shift }}:00 - {{ work_time.end_shift }}:00</h3>
+    </section>
+
+    <section>
+        <h3>Work days: {{ work_time.start_day }} - {{ work_time.end_day }}</h3>
+    </section>
+
+    <section>
+        <h3>Contact: {{ work_time.contact }}</h3>
+    </section>
+
+    <section>
+        <h3>Email: {{ work_time.company_email }}</h3>
+    </section>
+
+    <section>
+        <h3>City: {{ work_time.city }}</h3>
+    </section>
+
+    <section>
+        <h3>Address: {{ work_time.address }}</h3>
+    </section>
+{% endblock %}

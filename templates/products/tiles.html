@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'materials' %}">Tiles</a>
+    </h1>
+    {% for position in positions %}
+        <ul>
+            {% for tile in position %}
+                <li class="position">
+                    <div>
+                        {% if tile.item_image %}
+                            <a href="{% url 'product details' tile.pk %}">
+                                <img width="150" height="150" src="/media/{{ tile.item_image }}" alt="{{ tile.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'products details' tile.pk %}">
+                                <img width="150" height="150" class="build-in-img"
+                                     src="{% static 'images/no_paint_image.jpg' %}" alt='build-in-image'/>
+                            </a>
+                        {% endif %}
+                        <p>Price: ${{ tile.price|floatformat:2 }}</p>
+                        <p>{{ tile.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </center>
+{% endblock %}

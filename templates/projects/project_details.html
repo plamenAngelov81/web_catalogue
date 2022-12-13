@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <h1><a href="{% url 'projects' %}">Project Details</a></h1>
+        <p>Project Name: {{ object.name }}</p>
+        <p>Project type: {{ object.project_type }}</p>
+        {% if object.active %}
+            <p>Status: Active</p>
+        {% else %}
+            <p>Status: Not Active</p>
+        {% endif %}
+        <p>Description: {{ object.description }}</p>
+        <p>Price: ${{ object.price|floatformat:2 }}</p>
+{% endblock %}

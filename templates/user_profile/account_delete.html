@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <link rel="stylesheet" href="{% static 'css/web_shop.css' %}">
+    <h1>Are you sure you want to delete your account?</h1>
+    <form method="post" action="{% url 'account delete' pk=object.pk %}">
+        {{ form }}
+        {% csrf_token %}
+        <button class="delete-yes">Yes</button>
+        <button>
+            <a href="{% url 'account details' pk=object.pk %}">No</a>
+        </button>
+    </form>
+{% endblock %}

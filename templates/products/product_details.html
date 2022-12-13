@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/position.css' %}">
+    <center>
+    <h1>{{ object.name }} Details</h1>
+    {% if object.item_image %}
+        <p><img width="250" height="250" src="/media/{{ object.item_image }}" alt="{{ object.name }}"></p>
+    {% else %}
+        <p><img width="180" height="180" class="build-in-img" src="{% static 'images/no_paint_image.jpg' %}" alt='build-in-image'/></p>
+    {% endif %}
+    <p>Name: {{ object.name }}</p>
+    <p>Brand: {{ object.brand }}</p>
+    {% if object.length %}
+        <p>Length (mm): {{ object.length|floatformat:2 }}</p>
+    {% endif %}
+    {% if object.width %}
+        <p>Width (mm): {{ object.width|floatformat:2 }}</p>
+    {% endif %}
+    {% if object.height %}
+        <p>Height (mm): {{ object.height|floatformat:2 }}</p>
+    {% endif %}
+    {% if object.weight %}
+        <p>Weight (kg): {{ object.weight|floatformat:2 }}</p>
+    {% endif %}
+    {% if object.diameter %}
+        <p>Diameter (mm): {{ object.diameter|floatformat:2 }}</p>
+    {% endif %}
+    {% if object.quantity %}
+        <p>Quantity (litters): {{ object.quantity|floatformat:2 }}</p>
+    {% endif %}
+    <p>Price: ${{ object.price|floatformat:2 }}</p>
+
+
+{#    {% if user.is_superuser or user.is_staff %}#}
+{#        <button>#}
+{#            <a href="{% url 'product edit' object.pk %}">#}
+{#               <span class="glyphicon glyphicon-wrench"></span> Edit#}
+{#            </a>#}
+{#        </button>#}
+{#        <button>#}
+{#            <a href="{% url 'product delete' object.pk %}">#}
+{#                <span class="glyphicon glyphicon-trash"></span> Delete#}
+{#            </a>#}
+{#        </button>#}
+{#    {% endif %}#}
+    </center>
+{% endblock %}

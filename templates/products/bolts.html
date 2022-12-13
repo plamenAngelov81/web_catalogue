@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <center>
+    <h1>
+        <a href="{% url 'metal elements' %}">Bolts</a>
+    </h1>
+    <div class="table">
+        <table>
+            <thead>Bolts Ordinary</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+            </tr>
+            {% for bolt in ordinary_bolts %}
+                <tr>
+                    <td><a href="{% url 'product details' bolt.pk %}">{{ bolt.name }}</a></td>
+                    <td>{{ bolt.product_type.type_name }}</td>
+                    <td>{{ bolt.diameter|floatformat:2 }}mm</td>
+                    <td>{{ bolt.length|floatformat:2 }}mm</td>
+                    <td>${{ bolt.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="table">
+        <table>
+            <thead>Bolts Socket</thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Diameter</td>
+                <td>Length</td>
+                <td>Price</td>
+
+            </tr>
+            {% for bolt in socket_bolts %}
+                <tr>
+                    <td><a href="{% url 'product details' bolt.pk %}">{{ bolt.name }}</a></td>
+                    <td>{{ bolt.product_type.type_name }}</td>
+                    <td>{{ bolt.diameter|floatformat:2 }}mm</td>
+                    <td>{{ bolt.length|floatformat:2 }}mm</td>
+                    <td>${{ bolt.price|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </center>
+{% endblock %}
