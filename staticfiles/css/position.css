@@ -1,0 +1,48 @@
+.position {
+    display: inline-block;
+}
+
+.position div {
+    width: 250px;
+    height: 250px;
+}
+
+.metal {
+    display: inline-block;
+    padding: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.project {
+    display: inline-block;
+    padding: 30px;
+}
+
+.aaaa {
+    display: inline-block;
+}
+
+.filter {
+    display: inline-block;
+}
+
+form {
+    padding: 20px;
+}
+
+.page {
+    padding: 25px;
+}
+
+.loop {
+    padding: 20px;
+}
+
+.loop div {
+    width: 250px;
+    height: 200px;
+    padding: 15px;
+}

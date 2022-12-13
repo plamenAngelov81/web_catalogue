@@ -1,0 +1,28 @@
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 30px;
+    /*border: 2px solid #ddd;*/
+    display: inline-block;
+}
+
+th, td {
+    text-align: right;
+    padding: 14px;
+}
+
+button.create {
+    padding: 5px;
+    width: 140px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px;
+    background-color: #9b9b98;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: green;
+    color: #e5e2e2;
+    opacity: 0.8;
+}

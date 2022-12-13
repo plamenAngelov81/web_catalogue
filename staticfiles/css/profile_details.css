@@ -1,0 +1,58 @@
+.details {
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+button.edit {
+    padding: 7px;
+    width: 120px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px;
+    background-color: #b7b3ab;
+    font-size: 18px;
+}
+
+button.delete {
+    padding: 7px;
+    width: 120px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px;
+    background-color: #b7b3ab;
+    font-size: 18px;
+}
+
+button.edit:hover {
+    background-color: green;
+}
+
+button.delete:hover {
+    background-color: red;
+}
+
+a.account:hover {
+    color: white;
+}
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 20px;
+    /*border: 2px solid #ddd;*/
+    display: inline-block;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+thead {
+    text-align: center;
+}

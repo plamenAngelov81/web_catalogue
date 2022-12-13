@@ -1,0 +1,24 @@
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 30px;
+    /*border: 2px solid #ddd;*/
+    display: inline-block;
+}
+
+th, td {
+    text-align: center;
+    padding: 14px;
+}
+
+tr:nth-child(even) {
+    background-color: #e5e2e2;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    padding: 10px;
+}
